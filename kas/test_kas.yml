@@ -16,13 +16,13 @@ repos:
       meta-skeleton:
   
   meta-wissem-bsp:
-    path : ./meta-wissem-bsp
+    path : ./layers/meta-wissem-bsp
     
 
   meta-wissem-distro:
-    path : ./meta-wissem-distro
+    path : ./layers/meta-wissem-distro
   meta-wissem-pjs:
-    path : ./meta-wissem-pjs
+    path : ./layers/meta-wissem-pjs
 local_conf_header:
   meta-wissem: |
     IMAGE_INSTALL:append = " timotwofxdriver"
