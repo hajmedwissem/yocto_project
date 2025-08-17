@@ -1,0 +1,37 @@
+header:
+  version: 10
+
+machine : myboard
+distro : techleef
+target : techleef-core-image
+
+repos:
+  openembedded-core:
+    url: git://git.openembedded.org/openembedded-core
+    branch: "walnascar"
+    path : /home/wissem/Desktop/yocto_test/openembedded-core
+    layers:
+      meta:
+      meta-selftest:
+      meta-skeleton:
+  
+  meta-wissem-bsp:
+    path : ./meta-wissem-bsp
+    
+
+  meta-wissem-distro:
+    path : ./meta-wissem-distro
+  meta-wissem-pjs:
+    path : ./meta-wissem-pjs
+local_conf_header:
+  meta-wissem: |
+    IMAGE_INSTALL:append = " timotwofxdriver"
+    PACKAGE_CLASSES = "package_rpm"
+    DL_DIR = "${TOPDIR}/../downloads"
+    SSTATE_DIR = "${TOPDIR}/../sstate-cache"
+    INHERIT += "cve-check"
+    CVE_CHECK_ENABLE = "1"
+    CVE_CHECK_CHECK_SEVERITY = "high"
+    
+
+
